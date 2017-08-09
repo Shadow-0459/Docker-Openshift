@@ -1,0 +1,8 @@
+SETUP_LVM_THIN_POOL = YES（需要时用）
+LVM技术
+
+pvs/lvs/vgs
+
+我做好了一个image别人from我的时候 用到 onbuild
+
+$(docker ps -aq)全删

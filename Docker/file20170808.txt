@@ -1,0 +1,78 @@
+Doker:
+
+Do276-rhel7.2-role.pdf（教材）
+结构：
+hardware-host os-libs a-app a
+1.container 的隔离机制（容器）
+2.速度快
+yum list |grep versionlock
+锁住版本
+
+3.可以reusability重用
+
+架构：
+core elements：
+1.container只提供交互，本身没有功能与os的交互
+主要作为的是images(read-only)
+2.images
+并非是完全只读（rw+readonly）
+3.Registries : yum 源
+
+
+linux kernel:
+namespaces
+control group(Cgroup)可以针对
+soft->达到报警 studengt->报错
+『.会被影响
++setFACL->有其他高级机制』
+
+
+selinux实际使用是可以关闭（enabled,disabled）
+-p永久生效
+
+unionFS
+
+
+man passwd
+man 5 passwd
+
+docker语句：
+ps
+ps -a
+run --name
+rm
+run mysql
+rmi pull名
+run -p 端口转发
+不停到可以刷新浏览器
+docker inspect -->审查所有信息
+docker inspect -f '{{.Network.IPaddress}}' 名
+
+logs日志（当前container里面发生的事情）
+event结果（container本身发生的事情）
+
+chcon
+
+database 的 data ：
+docker run --name mysql-1 \
+-d -v /var/local/mysql:/var/lib/mysql/data \
+-e MYSQL_USER=user1 -e MYSQL_PASSWORD=mypa55 \
+-e MYSQL_DATABASE=items -e MYSQL_ROOT_PASSWORD=r00tpa55 \
+do276/mysql-55-rhel7
+docker run --name mysql-1 \
+-d -v /var/local/mysql:/var/lib/mysql/data \
+-e MYSQL_USER=user1 -e MYSQL_PASSWORD=mypa55 \
+-e MYSQL_DATABASE=items -e MYSQL_ROOT_PASSWORD=r00tpa55 \
+do276/mysql-55-rhel7
+
+-v绑定 双向且能保存下来
+
+run --rm 运行一次删除
+
+add 可以 用 非本地地址
+    可以 自动解包
+copy 只能指向本地地址
+
+可以通过-f 更改dokerfile的名字
+
+不能通过image反推出dockerfile
